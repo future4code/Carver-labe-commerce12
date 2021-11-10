@@ -1,15 +1,20 @@
-import React from 'react';
-import styled from 'styled-components'
-import './App.css';
-import Carrinho from './components/Carrinho/Carrinho'
+
+
+import React from 'react'
+import Posts from './Componentes/Posts';
+import styled from 'styled-components';
+
+const DivPai = styled.div`
+  display: flex;
+`
 
 function App() {
   return (
-    <div>
-      <Carrinho/>
-    
-    </div>
-  );
+    <DivPai>
+      
+    </DivPai>
+  )
+
 }
 
 export default App;
