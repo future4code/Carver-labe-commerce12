@@ -27,10 +27,9 @@ const Posts = (props) =>{
     return(
         <Div>
             <img src={props.imagem}/>
-            
             <Div2>
             <p>{props.nome}</p>
-            <p>R${props.preco}</p>
+            <p>R${Number(props.preco)}</p>
             </Div2>
             <button>Adicionar ao carrinho</button>
             
