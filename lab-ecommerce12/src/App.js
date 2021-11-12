@@ -1,5 +1,6 @@
 import React from 'react'
 import { DivPai, DivPosts } from './App-Style'
+import { Paragrafo, ContainerFiltros, Titulo, Input } from './Filtros-Style'
 import Post from './Components/Post'
 import Filtros from './Components/Filtros'
 
@@ -10,38 +11,90 @@ class App extends React.Component {
       {
         id: Math.random(),
         imagem: "https://picsum.photos/200/200",
-        nome: "Post 1",
+        nome: "brinquedo",
         preco: 20
       },
       {
         id: Math.random(),
         imagem: "https://picsum.photos/200/200?1",
-        nome: "Post 2",
+        nome: "Brinquedo",
         preco: 100
       },
       {
         id: Math.random(),
         imagem: "https://picsum.photos/200/200?2",
         nome: "Post 1",
-        preco: 50
+        preco: 500
       },
       {
         id: Math.random(),
         imagem: "https://picsum.photos/200/200?3",
-        nome: "Post 2",
+        nome: "produto",
         preco: 200
       },
     ],
-    order: 1
+    order: 1,
+    inputValorMaximo: "",
+    inputValorMinimo: "",
+    inputProduto: "",
+
   }
 
-  updateOrder = (event) =>{
-    this.setState({order: event.target.value})
+  updateOrder = (event) => {
+    this.setState({ order: event.target.value })
   }
+
+
+
+  onChangeMaximo = (event) => {
+    this.setState({ inputValorMaximo: event.target.value });
+  };
+
+  onChangeMinimo = (event) => {
+    this.setState({ inputValorMinimo: event.target.value });
+  };
+
+  onChangeProduto = (event) => {
+    this.setState({ inputProduto: event.target.value });
+  };
+
+
+
   render() {
     return (
       <DivPai>
-        <Filtros />
+
+
+        <ContainerFiltros>
+          <Titulo>Filtros</Titulo>
+          <Paragrafo> Valor Máximo</Paragrafo>
+          <Input
+            type="number"
+            value={this.state.inputValorMaximo}
+            onChange={this.onChangeMaximo}
+            placeholder="Preço Máximo"
+          />
+          <Paragrafo> Valor Mínimo</Paragrafo>
+          <Input
+            type="Number"
+            value={this.state.inputValorMinimo}
+            onChange={this.onChangeMinimo}
+            placeholder="Preço Mínimo"
+          />
+          <Paragrafo> Buscar Produtos</Paragrafo>
+
+          <div>
+            <Input
+              defaultValue=""
+              type="text"
+              onChange={this.onChangeProduto}
+              placeholder="Digite aqui"
+            />
+          </div>
+
+        </ContainerFiltros>
+
+
 
         <DivPosts>
           <div>
@@ -57,18 +110,29 @@ class App extends React.Component {
             </span>
 
           </div>
-        
+
           <div>
-            {this.state.listaDePosts.sort((primeiroPost,segundoPost) =>{
-              return this.state.order * (primeiroPost.preco - segundoPost.preco)
+            {this.state.listaDePosts.filter(listaDePosts => {
+              return listaDePosts.nome.toLowerCase().includes(this.state.inputProduto.toLowerCase())
             })
-            .map((post) => {
-            return (
-              <Post imagem={post.imagem} nome={post.nome} preco={post.preco}/>
-            )
-          })}
+
+              .filter(listaDePosts => {
+                return this.state.inputValorMinimo === "" || listaDePosts.preco >= this.state.inputValorMinimo
+              })
+              .filter(listaDePosts => {
+                return this.state.inputValorMaximo === "" || listaDePosts.preco <= this.state.inputValorMaximo
+              })
+              .sort((primeiroPost, segundoPost) => {
+                return this.state.order * (primeiroPost.preco - segundoPost.preco)
+              })
+              .map((post) => {
+                return (
+                  <Post imagem={post.imagem} nome={post.nome} preco={post.preco} />
+                )
+              })}
           </div>
         </DivPosts>
+
         <Filtros />
       </DivPai>
 
