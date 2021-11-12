@@ -37,6 +37,9 @@ class App extends React.Component {
     return (
       <DivPai>
         <Filtros />
+        {this.state.listaDePosts.filter(listaDePosts =>{
+          return listaDePosts.nome.includes({this.state.{inputProduto}
+        })}
         <DivPosts>
           {this.state.listaDePosts.map((post) => {
             return (
