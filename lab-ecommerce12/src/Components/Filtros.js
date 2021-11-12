@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import styled from 'styled-components';
 
 
+
 const Paragrafo = styled.p`
 font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 color: black;
@@ -47,40 +48,29 @@ export class App extends Component {
   };
 
   onChangeMinimo = (event) => {
-    this.setState({ inputaValorMinimo: event.target.value });
+    this.setState({ inputValorMinimo: event.target.value });
   };
 
   onChangeProduto = (event) => {
     this.setState({ inputProduto: event.target.value });
   };
-
-  filtrarItensMax = (event) => {
-    this.setState({inputValorMaximo: event.target.value})
- };
-  
-
-  filtrarItensMin = (event) => {
-    this.setState({inputaValorMinimo: event.target.value})
-  };
-
-  
+ 
 
 
  
 
-  render() {  //o que aparece na tela, renderizado
+  render() {  
 
 
-       // const produtosFitrados = this.state.produtos.filter((produto) => {
-    //   return // condicionais
-    // })
+  
 
-    // const listaDeProdutosFiltrados = this.state.produtos.map((produto) => {
+    // const filtroDePosts = this.state.listaDePosts.map((listaDePosts) => {
     //   return(
-    //     <listaDePost
-    //       imagem = {produto.imagem}
-    //       titulo = {produto.titulo}
-    //       preco = {produto.preco}
+    //     <listaDePosts
+    //       id = {listaDePosts.id}
+    //       imagem = {listaDePosts.imagem}
+    //       nome = {listaDePosts.nome}
+    //       preco = {listaDePosts.preco}
     //     />
     //   )
     // })
@@ -100,18 +90,24 @@ export class App extends Component {
         />
         <Paragrafo> Valor Máximo</Paragrafo>
         <Input max="1000" type="Number"
-          value={this.state.inputaValorMinimo}
+          value={this.state.inputValorMinimo}
           onChange={this.onChangeMinimo}
           placeholder="Pesquisa"
         />
         <Paragrafo> Buscar Produtos</Paragrafo>
+        <div>
         <Input
           defaultValue=""
           type="text"
-          ref={this.state.inputProduto} 
+          // ref={this.state.inputProduto} 
           onChange={this.onChangeProduto}
-          placeholder="Produto"
+          placeholder="Digite aqui"
           />
+          
+
+          </div>
+        
+          <button onClick = {this.filtroDePosts}>Procurar</button>
           
         {
          
