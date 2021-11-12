@@ -13,10 +13,10 @@ const DivPosts = styled.div`
     flex-wrap: wrap;
     border: 2px red solid;
     width: 700px;
-    height: 90vh;
+    height: auto;
 `
 
-const Div = styled.div`
+const Card = styled.div`
 border: 1px solid black;
 width: 200px;
 height: 300px;
@@ -33,8 +33,8 @@ button{
 }
 `
 
-const Div2 = styled.div`
+const TextosCard = styled.div`
     margin: 15px 10px 10px;
 `
 
-export { DivPai, Div, Div2, DivPosts }
+export { DivPai, Card, TextosCard, DivPosts }
