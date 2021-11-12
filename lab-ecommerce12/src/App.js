@@ -1,6 +1,7 @@
 import React from 'react'
 import { DivPai, Div, Div2, DivPosts } from './App-Style'
 import Filtros from './Components/Filtros'
+import Carrinho from './Components/Carrinho'
 
 
 class App extends React.Component {
@@ -46,12 +47,12 @@ class App extends React.Component {
                   <p>{post.nome}</p>
                   <p>R${Number(post.preco)}</p>
                 </Div2>
-                <button>Adicionar ao carrinho</button>
+                <button >Adicionar ao carrinho</button>
               </Div>
             )
           })}
         </DivPosts>
-          <Filtros/>
+          <Carrinho/>
       </DivPai>
 
     );
