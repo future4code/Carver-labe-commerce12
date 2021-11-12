@@ -3,12 +3,23 @@ import styled from "styled-components"
 
 const DivPai = styled.div`
     display: flex;
-    margin: 0px
+    justify-content: space-between;
+    margin: 10px;
 `
-const Div = styled.div `
+
+const DivPosts = styled.div`
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    border: 2px red solid;
+    width: 700px;
+    height: 90vh;
+`
+
+const Div = styled.div`
 border: 1px solid black;
-width: 250px;
-height: 340px;
+width: 200px;
+height: 300px;
 display: flex;
 flex-direction: column;
 
@@ -23,8 +34,7 @@ button{
 `
 
 const Div2 = styled.div`
-margin: 15px 10px 10px;
+    margin: 15px 10px 10px;
 `
 
-
-export {DivPai,Div,Div2}
+export { DivPai, Div, Div2, DivPosts }

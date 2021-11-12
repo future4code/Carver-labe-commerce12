@@ -10,10 +10,10 @@ color: black;
 `
 
 const ContainerFiltros = styled.div`
-  width: 320px;
+  width: 250px;
   padding: 10px;
   border: 5px solid gray;
-  margin: 25px;
+  
 
 `
 const Titulo = styled.h1`
@@ -77,7 +77,7 @@ export class App extends Component {
 
     // const listaDeProdutosFiltrados = this.state.produtos.map((produto) => {
     //   return(
-    //     <Produto
+    //     <listaDePost
     //       imagem = {produto.imagem}
     //       titulo = {produto.titulo}
     //       preco = {produto.preco}
@@ -90,8 +90,7 @@ export class App extends Component {
     return (
 
       
-
-      <ContainerFiltros>
+       <ContainerFiltros>
         <Titulo>Filtros</Titulo>
         <Paragrafo> Valor Mínimo</Paragrafo>
         <Input min="100" type="number"

@@ -1,5 +1,5 @@
 import React from 'react'
-import {DivPai,Div,Div2} from './App-Style'
+import { DivPai, Div, Div2, DivPosts } from './App-Style'
 import Filtros from './Components/Filtros'
 
 
@@ -8,25 +8,25 @@ class App extends React.Component {
     listaDePosts: [
       {
         id: Math.random(),
-        imagem: "https://picsum.photos/250/230",
+        imagem: "https://picsum.photos/200/200",
         nome: "Post 1",
         preco: 20
       },
       {
         id: Math.random(),
-        imagem: "https://picsum.photos/250/230?1",
+        imagem: "https://picsum.photos/200/200?1",
         nome: "Post 2",
         preco: 50
       },
       {
         id: Math.random(),
-        imagem: "https://picsum.photos/250/230",
+        imagem: "https://picsum.photos/200/200?2",
         nome: "Post 1",
         preco: 100
       },
       {
         id: Math.random(),
-        imagem: "https://picsum.photos/250/230?1",
+        imagem: "https://picsum.photos/200/200?3",
         nome: "Post 2",
         preco: 200
       },
@@ -34,23 +34,25 @@ class App extends React.Component {
   }
 
   render() {
-    return(
-    <DivPai>
-      <Filtros/> 
-      {this.state.listaDePosts.map((post) =>{
-        return(
-          <Div>
-            <img src={post.imagem}/>
-            <Div2>
-            <p>{post.nome}</p>
-            <p>R${Number(post.preco)}</p>
-            </Div2>
-            <button>Adicionar ao carrinho</button>
-          </Div>
-        )
-      })}
-
-    </DivPai>
+    return (
+      <DivPai>
+        <Filtros />
+        <DivPosts>
+          {this.state.listaDePosts.map((post) => {
+            return (
+              <Div>
+                <img src={post.imagem} />
+                <Div2>
+                  <p>{post.nome}</p>
+                  <p>R${Number(post.preco)}</p>
+                </Div2>
+                <button>Adicionar ao carrinho</button>
+              </Div>
+            )
+          })}
+        </DivPosts>
+          <Filtros/>
+      </DivPai>
 
     );
   }
