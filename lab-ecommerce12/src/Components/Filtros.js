@@ -35,7 +35,7 @@ margin:0;
 
 
 export class App extends Component {
-  state = { //presente durante a execucao do app, qd atualiza a pag, muda
+  state = { 
     inputValorMaximo: "",     
     inputValorMinimo: "", 
     inputProduto: "",    
@@ -44,7 +44,7 @@ export class App extends Component {
   };
 
   onChangeMaximo = (event) => {
-    this.setState({ inputValorMaximo: event.target.value }); //modifica o state
+    this.setState({ inputValorMaximo: event.target.value }); 
   };
 
   onChangeMinimo = (event) => {
