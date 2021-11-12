@@ -1,25 +1,6 @@
 import React from 'react'
-import styled from 'styled-components'
-
-const Div = styled.div 
-    border: 1px solid black;
-    width: 250px;
-    height: 340px;
-    display: flex;
-    flex-direction: column;
-
-    p{
-        font-size: 15px;
-        margin: 5px 0;
-    }
-
-    button{
-       align-self : center;
-    }
-
-
-const Div2 = styled.div
-    margin: 15px 10px 10px;
+import { DivPai, Div, Div2, DivPosts } from './App-Style'
+import Filtros from './Components/Filtros'
 
 
 class App extends React.Component {
@@ -27,37 +8,51 @@ class App extends React.Component {
     listaDePosts: [
       {
         id: Math.random(),
-        imagem: "https://picsum.photos/250/230",
+        imagem: "https://picsum.photos/200/200",
         nome: "Post 1",
-        preco: 300
+        preco: 20
       },
       {
         id: Math.random(),
-        imagem: "https://picsum.photos/250/230?1",
+        imagem: "https://picsum.photos/200/200?1",
         nome: "Post 2",
-        preco: 1000
+        preco: 50
+      },
+      {
+        id: Math.random(),
+        imagem: "https://picsum.photos/200/200?2",
+        nome: "Post 1",
+        preco: 100
+      },
+      {
+        id: Math.random(),
+        imagem: "https://picsum.photos/200/200?3",
+        nome: "Post 2",
+        preco: 200
       },
     ]
   }
 
   render() {
-    return(
-    <div>
-
-      {this.state.listaDePosts.map((post) =>{
-        return(
-          <Div>
-            <img src={post.imagem}/>
-            <Div2>
-            <p>{post.nome}</p>
-            <p>R${Number(post.preco)}</p>
-            </Div2>
-            <button>Adicionar ao carrinho</button>
-          </Div>
-        )
-      })}
-
-    </div>
+    return (
+      <DivPai>
+        <Filtros />
+        <DivPosts>
+          {this.state.listaDePosts.map((post) => {
+            return (
+              <Div>
+                <img src={post.imagem} />
+                <Div2>
+                  <p>{post.nome}</p>
+                  <p>R${Number(post.preco)}</p>
+                </Div2>
+                <button>Adicionar ao carrinho</button>
+              </Div>
+            )
+          })}
+        </DivPosts>
+          <Filtros/>
+      </DivPai>
 
     );
   }
