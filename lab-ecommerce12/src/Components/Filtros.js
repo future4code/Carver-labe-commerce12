@@ -26,7 +26,7 @@ color: black;
 
 const Input = styled.input`
 margin:0;
-background-color: red;
+
 
 `
 
