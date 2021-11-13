@@ -6,45 +6,45 @@ import { CarrinhoItem } from './Carrinho.Item';
 
 
 const ContainerCarrinho = styled.div
-    `
+  `
   width: 250px;
   padding: 10px;
   border: 5px solid gray;
 `
 
-const CarrrinhoTitulo = styled.h1
-    `
-font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-font-size: 25px;
-font-weight: 600;
-color: black;
-`
+// const CarrrinhoTitulo = styled.h1
+//   `
+// font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+// font-size: 25px;
+// font-weight: 600;
+// color: black;
+// `
 const listaDePosts = [
-    {
-      id: Math.random(),
-      imagem: "https://picsum.photos/200/200",
-      nome: "Post 1",
-      preco: 20
-    },
-    {
-      id: Math.random(),
-      imagem: "https://picsum.photos/200/200?1",
-      nome: "Post 2",
-      preco: 50
-    },
-    {
-      id: Math.random(),
-      imagem: "https://picsum.photos/200/200?2",
-      nome: "Post 1",
-      preco: 100
-    },
-    {
-      id: Math.random(),
-      imagem: "https://picsum.photos/200/200?3",
-      nome: "Post 2",
-      preco: 200
-    },
-  ]
+  {
+    id: Math.random(),
+    imagem: "https://picsum.photos/200/200",
+    nome: "Post 1",
+    preco: 20
+  },
+  {
+    id: Math.random(),
+    imagem: "https://picsum.photos/200/200?1",
+    nome: "Post 2",
+    preco: 50
+  },
+  {
+    id: Math.random(),
+    imagem: "https://picsum.photos/200/200?2",
+    nome: "Post 1",
+    preco: 100
+  },
+  {
+    id: Math.random(),
+    imagem: "https://picsum.photos/200/200?3",
+    nome: "Post 2",
+    preco: 200
+  },
+]
 
 export default class Carrinho extends Component {
   valorTotalProduto = (preco, quantidade) => {
@@ -63,23 +63,23 @@ export default class Carrinho extends Component {
     const produtosNoCarrinho = this.props.carrinho.map((produto) => {
       return (
         <CardCompra key={produto.id}>
-          <DescricaoProduto>
+          <div>
             <img src={produto.image} alt={produto.nome} />
             <p>{produto.nome}</p>
-            <BotaoDeletar src={ Remover } alt="deletar produto" onClick={() => this.props.removerProduto(produto.id)} />
-            </DescricaoProduto>
-            <div></div>
-            <div>
-              <AreaQuantidade>
-                <p>Quantidade: <button onClick={() => this.props.diminuirQuantidade(produto)}> - </button>  {produto.quantidade}  <button onClick={() => this.props.adicionarQuantidade(produto)}> + </button> </p>
-              </AreaQuantidade>
-              <p>¢ {this.valorTotalProduto(produto.valor, produto.quantidade)}</p>
-            </div>
-          </CardCompra>
-        );
-      });
+            <BotaoDeletar src={Remover} alt="deletar produto" onClick={() => this.props.removerProduto(produto.id)} />
+          </div>
+          <div></div>
+          <div>
+            <di>
+              <p>Quantidade: <button onClick={() => this.props.diminuirQuantidade(produto)}> - </button>  {produto.quantidade}  <button onClick={() => this.props.adicionarQuantidade(produto)}> + </button> </p>
+            </di>
+            <p>R$ {this.valorTotalProduto(produto.valor, produto.quantidade)}</p>
+          </div>
+        </CardCompra>
+      );
+    });
 
-      const resumoCompra = 
+    const resultadoFinal =
       <div>
         <h1>SUA COMPRA</h1>
         <div>
@@ -87,19 +87,19 @@ export default class Carrinho extends Component {
             <h2>Produto escolhido:</h2>
             <span> {this.props.totalItens(this.props.carrinho)} item(s) </span>
           </div>
-             <h1>Total:</h1>
-            <h2>R$ {this.valorTotalCarrinho(this.props.carrinho)}</h2>
-          </div>
-          <div>
-            <button>FINALIZAR</button>
-            
-          </div>
+          <h1>Total:</h1>
+          <h2>R$ {this.valorTotalCarrinho(this.props.carrinho)}</h2>
         </div>
-      
+        <div>
+          <button>FINALIZAR</button>
 
-      const carrinhoVazio = 
+        </div>
+      </div>
+
+
+    const carrinhoVazio =
       <div>
-        <img src={ CarroVazio } alt="Carrinho vazio" /> 
+        <img src={CarroVazio} alt="Carrinho vazio" />
         <h2>Carrinho Vazio</h2>
         <button onClick={this.props.paginaCarrinho}>VOLTAR PARA A PÁGINA INICIAL</button>
       </div>
@@ -107,32 +107,33 @@ export default class Carrinho extends Component {
     if (this.props.carrinho.length > 0) {
       return (
         <div>
-          <PaginaCarrinho>
+          <div>
+
             <div>
-              <div>
-                <h2>★ CARRINHO</h2>
-              </div> 
-              {produtosNoCarrinho}
-              <div>
-                <button onClick={() => {this.props.limparCarrinho()}}>Limpar Carrinho</button>
-              </div>
+              <h2>★ CARRINHO</h2>
             </div>
+            {produtosNoCarrinho}
             <div>
-              { resumoCompra }
+              <button onClick={() => { this.props.limparCarrinho() }}>Limpar Carrinho</button>
             </div>
-          </PaginaCarrinho> 
+
+            <div>
+              {resultadoFinal}
+            </div>
+
+          </div>
         </div>
       );
     } else {
       return (
-        <CarrinhoVazio>
-          { carrinhoVazio }
-        </CarrinhoVazio>
+        <ContainerCarrinho>
+          {carrinhoVazio}
+        </ContainerCarrinho>
       );
     }
   }
 }
- 
+
     //     return (
     //         <>
 
