@@ -5,9 +5,7 @@ const DivPai = styled.div`
     display: flex;
     justify-content: space-between;
     margin: 10px;
-    background: url("https://ak.picdn.net/shutterstock/videos/6009377/thumb/1.jpg");
-    background-repeat: repeat;
-    color: white;
+    color: black;
     font-weight: bold;
 `
 
@@ -29,6 +27,7 @@ const DivOrdenacao = styled.div`
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    margin-bottom: 10px;
 `
 
 const GradeDePosts = styled.div`
@@ -39,4 +38,10 @@ const GradeDePosts = styled.div`
 
 `
 
-export { DivPai, ContainerPosts, DivOrdenacao,GradeDePosts }
+const Carrinho = styled.p`
+font-size: 15px;
+text-align: justify;
+
+`
+
+export {DivPai, ContainerPosts, DivOrdenacao, GradeDePosts, Carrinho }

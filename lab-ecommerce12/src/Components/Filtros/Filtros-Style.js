@@ -2,16 +2,18 @@ import styled from "styled-components"
 
 const Paragrafo = styled.div`
 font-family: 'Shippori Antique B1', sans-serif;
-color: solid white;
+color: solid black;
 
 `
 
 const ContainerFiltros = styled.div`
 width: 250px;
 padding: 10px;
-/* border: 5px solid red; */
-border-right: 5px white solid;
+border-right: 3px #B36FF6 solid;
+border-left: 5px #B36FF6 solid;
 padding: 20px;
+background: #B7C9E2;
+color: #373737;
  
 `
 
@@ -19,7 +21,7 @@ const Titulo = styled.h1`
 font-family: 'Shippori Antique B1', sans-serif;
 font-size: 20px;
 font-weight: 600;
-color: solid white;
+color: solid black;
 
 `
 

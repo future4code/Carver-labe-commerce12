@@ -9,6 +9,11 @@ display: flex;
 flex-direction: column;
 font-family: 'Shippori Antique B1', sans-serif;
 
+button:hover{
+    background: #7BC8F6;
+    color: blue;
+}
+
 p{
     font-size: 14px;
     margin: 5px 0;
