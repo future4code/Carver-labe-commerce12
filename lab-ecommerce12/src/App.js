@@ -1,6 +1,6 @@
 import React from 'react'
-import { DivPai, ContainerPosts, DivOrdenacao, GradeDePosts} from './App-Style'
-import { Paragrafo, ContainerFiltros, Titulo, Input, Sear } from './Components/Filtros/Filtros-Style'
+import { DivPai, ContainerPosts, DivOrdenacao, GradeDePosts, Carrinho } from './App-Style'
+import { Paragrafo, ContainerFiltros, Titulo, Input } from './Components/Filtros/Filtros-Style'
 import Post from './Components/Post'
 
 
@@ -55,7 +55,7 @@ class App extends React.Component {
   updateOrder = (event) => {
     this.setState({ order: event.target.value })
   }
-//----------------------------------
+  //----------------------------------
   onChangeMaximo = (event) => {
     this.setState({ inputValorMaximo: event.target.value });
   };
@@ -68,49 +68,45 @@ class App extends React.Component {
     this.setState({ inputProduto: event.target.value });
   };
 
-  mudarQnt = () =>{
+  mudarQnt = () => {
     this.setState({})
   }
 
   render() {
     return (
       <DivPai>
-        <ContainerFiltros>
-          
-          <Titulo>Filtros</Titulo>
-          <Paragrafo> Valor Máximo</Paragrafo>
-          <Input
-            type="number"
-            value={this.state.inputValorMaximo}
-            onChange={this.onChangeMaximo}
-            placeholder="Preço Máximo"
-          />
-          <Paragrafo> Valor Mínimo</Paragrafo>
-          <Input
-            type="Number"
-            value={this.state.inputValorMinimo}
-            onChange={this.onChangeMinimo}
-            placeholder="Preço Mínimo"
-          />
-          <Paragrafo> Buscar Produtos</Paragrafo>
-
-          <div>
+          <ContainerFiltros>
+            <Titulo>Filtros</Titulo>
+            <Paragrafo> Valor Máximo</Paragrafo>
             <Input
-              defaultValue=""
-              type="text"
-              onChange={this.onChangeProduto}
-              placeholder="Digite aqui"
+              type="number"
+              value={this.state.inputValorMaximo}
+              onChange={this.onChangeMaximo}
+              placeholder="Preço Máximo"
             />
-          </div>
+            <Paragrafo> Valor Mínimo</Paragrafo>
+            <Input
+              type="Number"
+              value={this.state.inputValorMinimo}
+              onChange={this.onChangeMinimo}
+              placeholder="Preço Mínimo"
+            />
+            <Paragrafo> Buscar Produtos</Paragrafo>
 
-        </ContainerFiltros>
+            <div>
+              <Input
+                defaultValue=""
+                type="text"
+                onChange={this.onChangeProduto}
+                placeholder="Digite aqui"
+              />
+            </div>
 
+          </ContainerFiltros>
 
+          <ContainerPosts>
 
-        <ContainerPosts>
-          
             <DivOrdenacao>
-              <p>Quantidade de produtos: {this.state.qntDeProdutos}</p>
               <span>
                 <label>
                   Ordenação:
@@ -122,61 +118,40 @@ class App extends React.Component {
               </span>
             </DivOrdenacao>
 
-          <GradeDePosts>
-            {this.state.listaDePosts.filter(listaDePosts => {
-              return listaDePosts.nome.toLowerCase().includes(this.state.inputProduto.toLowerCase())
-            })
-
-              .filter(listaDePosts => {
-                return this.state.inputValorMinimo === "" || listaDePosts.preco >= this.state.inputValorMinimo
+            <GradeDePosts>
+              {this.state.listaDePosts.filter(listaDePosts => {
+                return listaDePosts.nome.toLowerCase().includes(this.state.inputProduto.toLowerCase())
               })
-              .filter(listaDePosts => {
-                return this.state.inputValorMaximo === "" || listaDePosts.preco <= this.state.inputValorMaximo
-              })
-              .sort((primeiroPost, segundoPost) => {
-                return this.state.order * (primeiroPost.preco - segundoPost.preco)
-              })
-              .map((post) => {
-                return (
-                  
-                  <Post imagem={post.imagem} nome={post.nome} preco={post.preco} />
-                )
-              })}
-          </GradeDePosts>
 
-        </ContainerPosts>
+                .filter(listaDePosts => {
+                  return this.state.inputValorMinimo === "" || listaDePosts.preco >= this.state.inputValorMinimo
+                })
+                .filter(listaDePosts => {
+                  return this.state.inputValorMaximo === "" || listaDePosts.preco <= this.state.inputValorMaximo
+                })
+                .sort((primeiroPost, segundoPost) => {
+                  return this.state.order * (primeiroPost.preco - segundoPost.preco)
+                })
+                .map((post) => {
+                  return (
 
-        {/* <ContainerFiltros>
-          
-          <Titulo>Filtros</Titulo>
-          <Paragrafo> Valor Máximo</Paragrafo>
-          <Input
-            type="number"
-            value={this.state.inputValorMaximo}
-            onChange={this.onChangeMaximo}
-            placeholder="Preço Máximo"
-          />
-          <Paragrafo> Valor Mínimo</Paragrafo>
-          <Input
-            type="Number"
-            value={this.state.inputValorMinimo}
-            onChange={this.onChangeMinimo}
-            placeholder="Preço Mínimo"
-          />
-          <Paragrafo> Buscar Produtos</Paragrafo>
+                    <Post imagem={post.imagem} nome={post.nome} preco={post.preco} />
+                  )
+                })}
+            </GradeDePosts>
 
-          <div>
-            <Input
-              defaultValue=""
-              type="text"
-              onChange={this.onChangeProduto}
-              placeholder="Digite aqui"
-            />
-          </div>
+          </ContainerPosts>
 
-        </ContainerFiltros> */}
-
+          <ContainerFiltros>
+            <div>
+              <Titulo>Carrinho</Titulo>
+              <Carrinho>Perdemos uma rodinha do nosso carrinho, e no momento, não estamos aceitando compras através do site.
+                Pedimos por gentileza fazer contato através do e-mail: socorro@labenu.com.br </Carrinho>
+            </div>
+          </ContainerFiltros>
       </DivPai>
+
+
 
     );
   }
