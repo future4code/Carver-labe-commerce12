@@ -1,6 +1,7 @@
 import React from "react"
 import {Card, TextosCard} from './Post/Post-Style'
 
+
 const Post = (props) => {
     return (
         <Card>
@@ -9,7 +10,9 @@ const Post = (props) => {
                 <p>{props.nome}</p>
                 <p>R${Number(props.preco)}</p>
             </TextosCard>
-            <button>Adicionar ao carrinho</button>
+            <button onClick={this.props.adicionarProduto} key={this.props.id}>
+          Adicionar ao Carrinho
+        </button>
         </Card>
     )
 }
