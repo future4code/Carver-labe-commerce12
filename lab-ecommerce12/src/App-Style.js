@@ -5,36 +5,38 @@ const DivPai = styled.div`
     display: flex;
     justify-content: space-between;
     margin: 10px;
+    background: url("https://ak.picdn.net/shutterstock/videos/6009377/thumb/1.jpg");
+    background-repeat: repeat;
+    color: white;
+    font-weight: bold;
 `
 
-const DivPosts = styled.div`
+const ContainerPosts = styled.div`
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     flex-wrap: wrap;
-    border: 2px red solid;
-    width: 700px;
+    margin: 10px;
+    padding: 3px;
+    border-right: 5px white solid;
+    width: 750px;
     height: auto;
+    font-family: 'Shippori Antique B1', sans-serif;
+    
 `
 
-const Card = styled.div`
-border: 1px solid black;
-width: 200px;
-height: 300px;
-display: flex;
-flex-direction: column;
-
-p{
-    font-size: 15px;
-    margin: 5px 0;
-}
-
-button{
-   align-self : center;
-}
+const DivOrdenacao = styled.div`
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 `
 
-const TextosCard = styled.div`
-    margin: 15px 10px 10px;
+const GradeDePosts = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 50px;
+
 `
 
-export { DivPai, Card, TextosCard, DivPosts }
+export { DivPai, ContainerPosts, DivOrdenacao,GradeDePosts }

@@ -1,5 +1,5 @@
 import React from "react"
-import {Card, TextosCard} from '../App-Style'
+import {Card, TextosCard} from './Post/Post-Style'
 
 const Post = (props) => {
     return (
