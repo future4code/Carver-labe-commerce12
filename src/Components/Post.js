@@ -10,9 +10,9 @@ const Post = (props) => {
                 <p>{props.nome}</p>
                 <p>R${Number(props.preco)}</p>
             </TextosCard>
-            <button onClick={this.props.adicionarProduto} key={this.props.id}>
+            {/* <button onClick={this.props.adicionarProduto} key={this.props.id}>
           Adicionar ao Carrinho
-        </button>
+        </button> */}
         </Card>
     )
 }
