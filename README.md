@@ -1,1 +1,7 @@
-Sejam bem vindos ao Labe-commerce, esse repositório contém um esqueleto de app React e um .gitignore.
+
+E-commerce de itens espaciais.<br>
+Link do projeto: https://military-picture.surge.sh/
+
+![alt text](https://i.postimg.cc/MTBpb9HY/loja.png)
+
+
